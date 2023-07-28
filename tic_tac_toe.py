@@ -27,7 +27,8 @@ class TicTacToeBoard:
         return output
 
     def move(self, x: int, y: int, selection: TicTacToeSelection):
-        self._board[x][y] = selection
+        if self._board[x][y] is TicTacToeSelection.EMPTY:
+            self._board[x][y] = selection
 
 
 if __name__ == '__main__':

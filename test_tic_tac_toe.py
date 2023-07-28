@@ -28,6 +28,16 @@ class TicTacToeTest(unittest.TestCase):
 
         self.assertEqual(actual, expected)
 
+    def test_add_selection_to_cell_that_already_has_value(self):
+        tic_tac_toe_board = TicTacToeBoard()
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.O)
+        expected = f"[X][ ][ ]{os.linesep}---------{os.linesep}[ ][ ][ ]{os.linesep}---------{os.linesep}[ ][ ][ ]{os.linesep}"
+        actual = str(tic_tac_toe_board)
+
+        self.assertEqual(actual, expected)
+
+
 
 if __name__ == '__main__':
     unittest.main()
