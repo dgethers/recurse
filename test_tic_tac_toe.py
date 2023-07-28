@@ -37,6 +37,32 @@ class TicTacToeTest(unittest.TestCase):
 
         self.assertEqual(actual, expected)
 
+    def test_X_wins_the_row(self):
+        tic_tac_toe_board = TicTacToeBoard()
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(0, 1, TicTacToeSelection.X)
+        tic_tac_toe_board.move(0, 2, TicTacToeSelection.X)
+        actual = tic_tac_toe_board.validate_win()
+
+        self.assertEqual(actual, TicTacToeSelection.X)
+
+    def test_O_wins_the_column(self):
+        tic_tac_toe_board = TicTacToeBoard()
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.O)
+        tic_tac_toe_board.move(1, 0, TicTacToeSelection.O)
+        tic_tac_toe_board.move(2, 0, TicTacToeSelection.O)
+        actual = tic_tac_toe_board.validate_win()
+
+        self.assertEqual(actual, TicTacToeSelection.O)
+
+    def test_X_wins_the_diagonal(self):
+        tic_tac_toe_board = TicTacToeBoard()
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(1, 1, TicTacToeSelection.X)
+        tic_tac_toe_board.move(2, 2, TicTacToeSelection.X)
+        actual = tic_tac_toe_board.validate_win()
+
+        self.assertEqual(actual, TicTacToeSelection.X)
 
 
 if __name__ == '__main__':
