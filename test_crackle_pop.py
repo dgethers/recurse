@@ -2,7 +2,7 @@ import unittest
 from crackle_pop import CracklePop
 
 
-class MyTestCase(unittest.TestCase):
+class CracklePopTest(unittest.TestCase):
     def test_1_to_100_display_correctly(self):
         actual = CracklePop.print()
         expected = ['1', '2', 'Crackle', '4', 'Pop', 'Crackle', '7', '8', 'Crackle', 'Pop', '11', 'Crackle', '13', '14',
