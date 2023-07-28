@@ -14,8 +14,7 @@ class TicTacToeBoard:
     def __init__(self):
         self._board = [[TicTacToeSelection.EMPTY for _ in range(3)] for _ in range(3)]
 
-    # todo: rename this function
-    def print_board(self):
+    def __str__(self):
         output = ""
         for i in range(len(self._board)):
             for j in range(len(self._board[i])):
