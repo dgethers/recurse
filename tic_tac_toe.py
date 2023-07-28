@@ -26,6 +26,9 @@ class TicTacToeBoard:
 
         return output
 
+    def move(self, x: int, y: int, selection: TicTacToeSelection):
+        self._board[x][y] = selection
+
 
 if __name__ == '__main__':
     pass
