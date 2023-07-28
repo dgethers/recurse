@@ -64,6 +64,35 @@ class TicTacToeTest(unittest.TestCase):
 
         self.assertEqual(actual, TicTacToeSelection.X)
 
+    def test_tie_game(self):
+        tic_tac_toe_board = TicTacToeBoard()
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(0, 1, TicTacToeSelection.O)
+        tic_tac_toe_board.move(0, 2, TicTacToeSelection.X)
+        tic_tac_toe_board.move(1, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(1, 1, TicTacToeSelection.X)
+        tic_tac_toe_board.move(1, 2, TicTacToeSelection.O)
+        tic_tac_toe_board.move(2, 0, TicTacToeSelection.O)
+        tic_tac_toe_board.move(2, 1, TicTacToeSelection.X)
+        tic_tac_toe_board.move(2, 2, TicTacToeSelection.O)
+        actual = tic_tac_toe_board.validate_tie()
+
+        self.assertTrue(actual)
+
+    def test_tie_game_when_board_is_not_full(self):
+        tic_tac_toe_board = TicTacToeBoard()
+        tic_tac_toe_board.move(0, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(0, 1, TicTacToeSelection.O)
+        tic_tac_toe_board.move(0, 2, TicTacToeSelection.X)
+        tic_tac_toe_board.move(1, 0, TicTacToeSelection.X)
+        tic_tac_toe_board.move(1, 2, TicTacToeSelection.O)
+        tic_tac_toe_board.move(2, 0, TicTacToeSelection.O)
+        tic_tac_toe_board.move(2, 1, TicTacToeSelection.X)
+        tic_tac_toe_board.move(2, 2, TicTacToeSelection.O)
+        actual = tic_tac_toe_board.validate_tie()
+
+        self.assertIsNone(actual)
+
 
 if __name__ == '__main__':
     unittest.main()

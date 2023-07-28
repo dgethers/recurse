@@ -2,6 +2,7 @@ from enum import Enum
 from typing import Optional
 import os
 
+
 class TicTacToeSelection(Enum):
     EMPTY = "[ ]"
     X = "[X]"
@@ -50,6 +51,18 @@ class TicTacToeBoard:
             return self._board[0][2]
 
         return None
+
+    def validate_tie(self) -> Optional[bool]:
+        winner = self.validate_win()
+
+        for row in self._board:
+            if TicTacToeSelection.EMPTY in row:
+                return None
+
+        if winner is None:
+            return True
+
+        return False
 
 
 if __name__ == '__main__':
